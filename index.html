@@ -97,7 +97,7 @@
             color: #000000; /* Black text on hover */
         }
         .rectangular-box {
-            position: absolute;
+            position: relative; /* Ensure box is relative to header-banner */
             top: 100%; /* Position the box right below the button */
             left: 0; /* Align the box with the left side of the button */
             background-color: #fbfdfe; /* Light color */
@@ -300,40 +300,38 @@
 <header class="header-banner">
     <img src="3604547.jpg" alt="Main Image">
     <div class="button-container">
-        <div style="position: relative;">
-            <button class="button">Flights</button>
-            <div class="rectangular-box">
-                Hi! Where would you like to go? 
-                <div class="radio-buttons">
-                    <label><input type="radio" name="destination" value="beach"> Round Trip</label>
-                    <label><input type="radio" name="destination" value="mountains"> One Way</label>
-                    <label><input type="radio" name="destination" value="city"> Multi-City</label>
+        <button class="button">Flights</button>
+        <div class="rectangular-box">
+            Hi! Where would you like to go? 
+            <div class="radio-buttons">
+                <label><input type="radio" name="destination" value="beach"> Round Trip</label>
+                <label><input type="radio" name="destination" value="mountains"> One Way</label>
+                <label><input type="radio" name="destination" value="city"> Multi-City</label>
+            </div>
+            <div class="small-boxes">
+                <div class="small-box">
+                    <p>From</p>
+                    <p style="font-size: 14px; margin-bottom: 1px;">Paris</p>
+                    <p>CDG</p>
                 </div>
-                <div class="small-boxes">
-                    <div class="small-box">
-                        <p>From</p>
-                        <p style="font-size: 14px; margin-bottom: 1px;">Paris</p>
-                        <p>CDG</p>
-                    </div>
-                    <div class="small-box">
-                        <p>To</p>
-                        <p style="font-size: 14px; margin-bottom: 1px;">New York</p>
-                        <p>JFK</p>
-                    </div>
-                    <div class="small-box">
-                        <p>Departure</p>
-                        <p style="font-size: 14px; margin-bottom: 1px;">2024-07-16</p>
-                        <p>08:00 AM</p>
-                    </div>
-                    <div class="small-box">
-                        <p>Travellers</p>
-                        <p style="font-size: 14px; margin-bottom: 1px;">2 Adults</p>
-                        <p>1 Child</p>
-                    </div>
+                <div class="small-box">
+                    <p>To</p>
+                    <p style="font-size: 14px; margin-bottom: 1px;">New York</p>
+                    <p>JFK</p>
                 </div>
-                <div class="additional-button">
-                    <button class="button">Book Now</button>
+                <div class="small-box">
+                    <p>Departure</p>
+                    <p style="font-size: 14px; margin-bottom: 1px;">2024-07-16</p>
+                    <p>08:00 AM</p>
                 </div>
+                <div class="small-box">
+                    <p>Travellers</p>
+                    <p style="font-size: 14px; margin-bottom: 1px;">2 Adults</p>
+                    <p>1 Child</p>
+                </div>
+            </div>
+            <div class="additional-button">
+                <button class="button">Book Now</button>
             </div>
         </div>
         <button class="button">Check-In/Schedule</button>
