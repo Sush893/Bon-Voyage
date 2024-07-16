@@ -97,19 +97,20 @@
             color: #000000; /* Black text on hover */
         }
         .rectangular-box {
-            position: relative; /* Ensure box is relative to header-banner */
-            top: 100%; /* Position the box right below the button */
-            left: 0; /* Align the box with the left side of the button */
-            background-color: #fbfdfe; /* Light color */
-            color: rgb(223, 113, 23);
-            padding: 20px; /* Increased padding for larger size */
-            width: 800px; /* Increased width */
-            height: 250px; /* Increased height */
-            border-radius: 8px;
-            z-index: 2; /* Ensure box is above the image */
-            white-space: nowrap; /* Prevent text from wrapping */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow */
-        }
+    position: relative;
+    top: 100%;
+    left: 0;
+    background-color: #fbfdfe;
+    color: rgb(223, 113, 23);
+    padding: 20px;
+    width: 60%; /* Set width relative to the parent */
+    max-width: 800px; /* Set a maximum width to ensure it doesn't stretch too much */
+    height: 250px;
+    border-radius: 8px;
+    z-index: 2;
+    white-space: nowrap;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
         .radio-buttons {
             margin-top: 20px; /* Space above radio buttons */
         }
