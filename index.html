@@ -98,8 +98,8 @@
         }
         .rectangular-box {
             position: absolute;
-            top: calc(100%+10px); /* Position the box right below the button */
-            left: 10; /* Align the box with the left side of the button */
+            /* top: calc(100%+10px); /* Position the box right below the button */
+            /* left: 10; Align the box with the left side of the button */
             background-color: #fbfdfe; /* Light color */
             color: rgb(223, 113, 23);
             padding: 20px; /* Increased padding for larger size */
@@ -248,10 +248,21 @@
             .rectangular-box {
                 width: 600px; /* Reduce width for smaller screens */
             }
+
+            .button {
+                font-size: 15px;
+            }
+
+            .small-box p{
+                font-size: 13px;
+            }
         }
 
         @media screen and (max-width: 800px) {
             .button-container {
+                margin-left: 30%;   
+                /* margin-right: 30%;  */
+                font-size: 12px;
                 left: 20%; /* Further adjust left position for smaller screens */
             }
             .rectangular-box {
@@ -264,18 +275,33 @@
             .box {
                 margin-bottom: 20px; /* Space between boxes on smaller screens */
             }
+
+            .button {
+                font-size: 12px;
+            }
+
+            .small-box p{
+                font-size: 12px;
+            }
         }
 
         @media screen and (max-width: 600px) {
             .button-container {
+                margin-left: 33%;
                 left: 10%; /* Adjust left position for even smaller screens */
             }
             .rectangular-box {
-                width: 300px; /* Reduce width significantly for very small screens */
-                padding: 10px; /* Adjust padding for smaller screens */
+                width: 300px; /*Reduce width significantly for very small screens */
+                padding: 10px; /*Adjust padding for smaller screens */
             }
             .four-boxes {
                 margin-top: 100px; /* Increase margin between boxes and text */
+            }
+            .button {
+                font-size: 10px;
+            }
+            .small-box p{
+                font-size: 10px;
             }
         }
     </style>
