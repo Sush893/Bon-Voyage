@@ -52,21 +52,18 @@
             position: relative; /* Position relative for absolute positioning inside */
             width: 100%; /* Set width of banner */
             max-width: 100%; /* Limit maximum width */
-            height: 300px; /* Set height of banner */
+            height: auto; /* Auto height based on image */
             overflow: visible; /* Allow overflow to ensure box can extend beyond banner */
         }
         .header-banner img {
             width: 100%; /* Ensure the image fills the width of the banner */
-            height: 100%; /* Ensure the image covers the entire height of the banner */
-            object-fit: cover; /* Maintain aspect ratio and cover entire space */
-            position: absolute; /* Position absolutely inside the banner */
-            top: 0; /* Position at the top */
-            left: 0; /* Position at the left */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove extra space below image */
         }
         .button-container {
             position: absolute; /* Position absolutely inside the banner */
-            top: 25%; /* Position vertically centered */
-            left: 40%; /* Shift buttons towards the left */
+            top: 50%; /* Position vertically centered */
+            left: 50%; /* Center align horizontally */
             transform: translate(-50%, -50%); /* Adjust center alignment */
             display: flex;
             justify-content: space-around; /* Adjusted spacing between buttons */
@@ -97,20 +94,21 @@
             color: #000000; /* Black text on hover */
         }
         .rectangular-box {
-    position: relative;
-    top: 100%;
-    left: 0;
-    background-color: #fbfdfe;
-    color: rgb(223, 113, 23);
-    padding: 20px;
-    width: 60%; /* Set width relative to the parent */
-    max-width: 800px; /* Set a maximum width to ensure it doesn't stretch too much */
-    height: 250px;
-    border-radius: 8px;
-    z-index: 2;
-    white-space: nowrap;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+            position: absolute;
+            top: calc(100% + 20px); /* Position the box just below the button container */
+            left: 50%; /* Center align horizontally */
+            transform: translateX(-50%); /* Adjust to center align */
+            background-color: #fbfdfe; /* Light color */
+            color: rgb(223, 113, 23); /* Text color */
+            padding: 20px; /* Padding */
+            width: 80%; /* Relative width */
+            max-width: 800px; /* Maximum width */
+            border-radius: 8px; /* Rounded corners */
+            z-index: 2; /* Ensure box is above the image */
+            white-space: nowrap; /* Prevent text wrapping */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Box shadow */
+            text-align: center; /* Center align text */
+        }
         .radio-buttons {
             margin-top: 20px; /* Space above radio buttons */
         }
@@ -221,63 +219,24 @@
         .text-div {
             background-color: #FFF;
             font-family: 'Forte', cursive;
-            text-align: center;
-            padding: 50px;
-            margin-top: 50px;
-            font-size: 24px;
-            color: #d46b0a;
+            font-size: 32px; /* Large font size */
+            color: #FFA500; /* Orange text */
+            text-align: center; /* Center align text */
+            padding: 20px 0; /* Padding above and below the text */
         }
-
-        .orange-banner {
-            background-color: #FFA500;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px; /* Adjust margin as needed */
+        .end-of-page {
+            background-color: #FFF; /* White background */
+            text-align: center; /* Center align text */
+            padding: 10px 0; /* Padding above and below the text */
+            font-size: 18px; /* Adjusted font size */
+            color: #000; /* Black text color */
+            margin-top: 20px; /* Space above the footer */
         }
-
-        .orange-banner p {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        /* Media Queries */
-        @media screen and (max-width: 1200px) {
-            .button-container {
-                left: 30%; /* Adjust left position for smaller screens */
-            }
-            .rectangular-box {
-                width: 600px; /* Reduce width for smaller screens */
-            }
-        }
-
-        @media screen and (max-width: 800px) {
-            .button-container {
-                left: 20%; /* Further adjust left position for smaller screens */
-            }
-            .rectangular-box {
-                width: 400px; /* Reduce width further for smaller screens */
-            }
-            .four-boxes {
-                flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
-                justify-content: center; /* Center boxes on smaller screens */
-            }
-            .box {
-                margin-bottom: 20px; /* Space between boxes on smaller screens */
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .button-container {
-                left: 10%; /* Adjust left position for even smaller screens */
-            }
-            .rectangular-box {
-                width: 300px; /* Reduce width significantly for very small screens */
-                padding: 10px; /* Adjust padding for smaller screens */
-            }
-            .four-boxes {
-                margin-top: 100px; /* Increase margin between boxes and text */
-            }
+        footer {
+            background-color: #000000; /* Black background */
+            color: white; /* White text color */
+            text-align: center; /* Center align text */
+            padding: 20px 0; /* Padding above and below the text */
         }
     </style>
 </head>
