@@ -52,18 +52,21 @@
             position: relative; /* Position relative for absolute positioning inside */
             width: 100%; /* Set width of banner */
             max-width: 100%; /* Limit maximum width */
-            height: auto; /* Auto height based on image */
+            height: 300px; /* Set height of banner */
             overflow: visible; /* Allow overflow to ensure box can extend beyond banner */
         }
         .header-banner img {
             width: 100%; /* Ensure the image fills the width of the banner */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Remove extra space below image */
+            height: 100%; /* Ensure the image covers the entire height of the banner */
+            object-fit: cover; /* Maintain aspect ratio and cover entire space */
+            position: absolute; /* Position absolutely inside the banner */
+            top: 0; /* Position at the top */
+            left: 0; /* Position at the left */
         }
         .button-container {
             position: absolute; /* Position absolutely inside the banner */
-            top: 50%; /* Position vertically centered */
-            left: 50%; /* Center align horizontally */
+            top: 25%; /* Position vertically centered */
+            left: 40%; /* Shift buttons towards the left */
             transform: translate(-50%, -50%); /* Adjust center alignment */
             display: flex;
             justify-content: space-around; /* Adjusted spacing between buttons */
@@ -95,19 +98,17 @@
         }
         .rectangular-box {
             position: absolute;
-            top: calc(100% + 20px); /* Position the box just below the button container */
-            left: 50%; /* Center align horizontally */
-            transform: translateX(-50%); /* Adjust to center align */
+            top: 100%; /* Position the box right below the button */
+            left: 0; /* Align the box with the left side of the button */
             background-color: #fbfdfe; /* Light color */
-            color: rgb(223, 113, 23); /* Text color */
-            padding: 20px; /* Padding */
-            width: 80%; /* Relative width */
-            max-width: 800px; /* Maximum width */
-            border-radius: 8px; /* Rounded corners */
+            color: rgb(223, 113, 23);
+            padding: 20px; /* Increased padding for larger size */
+            width: 800px; /* Increased width */
+            height: 250px; /* Increased height */
+            border-radius: 8px;
             z-index: 2; /* Ensure box is above the image */
-            white-space: nowrap; /* Prevent text wrapping */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Box shadow */
-            text-align: center; /* Center align text */
+            white-space: nowrap; /* Prevent text from wrapping */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow */
         }
         .radio-buttons {
             margin-top: 20px; /* Space above radio buttons */
@@ -219,24 +220,63 @@
         .text-div {
             background-color: #FFF;
             font-family: 'Forte', cursive;
-            font-size: 32px; /* Large font size */
-            color: #FFA500; /* Orange text */
-            text-align: center; /* Center align text */
-            padding: 20px 0; /* Padding above and below the text */
+            text-align: center;
+            padding: 50px;
+            margin-top: 50px;
+            font-size: 24px;
+            color: #d46b0a;
         }
-        .end-of-page {
-            background-color: #FFF; /* White background */
-            text-align: center; /* Center align text */
-            padding: 10px 0; /* Padding above and below the text */
-            font-size: 18px; /* Adjusted font size */
-            color: #000; /* Black text color */
-            margin-top: 20px; /* Space above the footer */
+
+        .orange-banner {
+            background-color: #FFA500;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px; /* Adjust margin as needed */
         }
-        footer {
-            background-color: #000000; /* Black background */
-            color: white; /* White text color */
-            text-align: center; /* Center align text */
-            padding: 20px 0; /* Padding above and below the text */
+
+        .orange-banner p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 1200px) {
+            .button-container {
+                left: 30%; /* Adjust left position for smaller screens */
+            }
+            .rectangular-box {
+                width: 600px; /* Reduce width for smaller screens */
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .button-container {
+                left: 20%; /* Further adjust left position for smaller screens */
+            }
+            .rectangular-box {
+                width: 400px; /* Reduce width further for smaller screens */
+            }
+            .four-boxes {
+                flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
+                justify-content: center; /* Center boxes on smaller screens */
+            }
+            .box {
+                margin-bottom: 20px; /* Space between boxes on smaller screens */
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .button-container {
+                left: 10%; /* Adjust left position for even smaller screens */
+            }
+            .rectangular-box {
+                width: 300px; /* Reduce width significantly for very small screens */
+                padding: 10px; /* Adjust padding for smaller screens */
+            }
+            .four-boxes {
+                margin-top: 100px; /* Increase margin between boxes and text */
+            }
         }
     </style>
 </head>
@@ -260,38 +300,40 @@
 <header class="header-banner">
     <img src="3604547.jpg" alt="Main Image">
     <div class="button-container">
-        <button class="button">Flights</button>
-        <div class="rectangular-box">
-            Hi! Where would you like to go? 
-            <div class="radio-buttons">
-                <label><input type="radio" name="destination" value="beach"> Round Trip</label>
-                <label><input type="radio" name="destination" value="mountains"> One Way</label>
-                <label><input type="radio" name="destination" value="city"> Multi-City</label>
-            </div>
-            <div class="small-boxes">
-                <div class="small-box">
-                    <p>From</p>
-                    <p style="font-size: 14px; margin-bottom: 1px;">Paris</p>
-                    <p>CDG</p>
+        <div style="position: relative;">
+            <button class="button">Flights</button>
+            <div class="rectangular-box">
+                Hi! Where would you like to go? 
+                <div class="radio-buttons">
+                    <label><input type="radio" name="destination" value="beach"> Round Trip</label>
+                    <label><input type="radio" name="destination" value="mountains"> One Way</label>
+                    <label><input type="radio" name="destination" value="city"> Multi-City</label>
                 </div>
-                <div class="small-box">
-                    <p>To</p>
-                    <p style="font-size: 14px; margin-bottom: 1px;">New York</p>
-                    <p>JFK</p>
+                <div class="small-boxes">
+                    <div class="small-box">
+                        <p>From</p>
+                        <p style="font-size: 14px; margin-bottom: 1px;">Paris</p>
+                        <p>CDG</p>
+                    </div>
+                    <div class="small-box">
+                        <p>To</p>
+                        <p style="font-size: 14px; margin-bottom: 1px;">New York</p>
+                        <p>JFK</p>
+                    </div>
+                    <div class="small-box">
+                        <p>Departure</p>
+                        <p style="font-size: 14px; margin-bottom: 1px;">2024-07-16</p>
+                        <p>08:00 AM</p>
+                    </div>
+                    <div class="small-box">
+                        <p>Travellers</p>
+                        <p style="font-size: 14px; margin-bottom: 1px;">2 Adults</p>
+                        <p>1 Child</p>
+                    </div>
                 </div>
-                <div class="small-box">
-                    <p>Departure</p>
-                    <p style="font-size: 14px; margin-bottom: 1px;">2024-07-16</p>
-                    <p>08:00 AM</p>
+                <div class="additional-button">
+                    <button class="button">Book Now</button>
                 </div>
-                <div class="small-box">
-                    <p>Travellers</p>
-                    <p style="font-size: 14px; margin-bottom: 1px;">2 Adults</p>
-                    <p>1 Child</p>
-                </div>
-            </div>
-            <div class="additional-button">
-                <button class="button">Book Now</button>
             </div>
         </div>
         <button class="button">Check-In/Schedule</button>
